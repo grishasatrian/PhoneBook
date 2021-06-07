@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhoneBook));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.del_btn = new System.Windows.Forms.Button();
@@ -42,7 +43,11 @@
             this.add_btn = new System.Windows.Forms.Button();
             this.edit_btn = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
+            this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPhone = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -99,6 +104,7 @@
             this.input_email.Name = "input_email";
             this.input_email.Size = new System.Drawing.Size(195, 20);
             this.input_email.TabIndex = 3;
+            this.input_email.TextChanged += new System.EventHandler(this.input_email_Leave);
             // 
             // label2
             // 
@@ -116,6 +122,7 @@
             this.input_phone.Name = "input_phone";
             this.input_phone.Size = new System.Drawing.Size(195, 20);
             this.input_phone.TabIndex = 3;
+            this.input_phone.TextChanged += new System.EventHandler(this.input_phone_Leave);
             // 
             // label3
             // 
@@ -164,12 +171,20 @@
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
+            // errorProviderEmail
+            // 
+            this.errorProviderEmail.ContainerControl = this;
+            // 
+            // errorProviderPhone
+            // 
+            this.errorProviderPhone.ContainerControl = this;
+            // 
             // PhoneBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(785, 249);
+            this.ClientSize = new System.Drawing.Size(793, 249);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.edit_btn);
             this.Controls.Add(this.add_btn);
@@ -184,13 +199,15 @@
             this.Controls.Add(this.del_btn);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(801, 288);
-            this.MinimumSize = new System.Drawing.Size(801, 288);
+            this.MaximumSize = new System.Drawing.Size(809, 288);
+            this.MinimumSize = new System.Drawing.Size(809, 288);
             this.Name = "PhoneBook";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Phone Book";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhone)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +228,8 @@
         private System.Windows.Forms.Button add_btn;
         private System.Windows.Forms.Button edit_btn;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.ErrorProvider errorProviderEmail;
+        private System.Windows.Forms.ErrorProvider errorProviderPhone;
     }
 }
 

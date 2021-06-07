@@ -16,3 +16,12 @@ C:\Users\User\Desktop\contacts\Contact\obj\Debug\Contact.csproj.CoreCompileInput
 C:\Users\User\Desktop\contacts\Contact\obj\Debug\Contact.exe
 C:\Users\User\Desktop\contacts\Contact\obj\Debug\Contact.pdb
 C:\Users\User\Desktop\contacts\Contact\obj\Debug\Contact.PhoneBook.resources
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\bin\Debug\Contact.exe
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\bin\Debug\Contact.pdb
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.csprojAssemblyReference.cache
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.PhoneBook.resources
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.Properties.Resources.resources
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.csproj.GenerateResource.cache
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.exe
+C:\Users\User\Desktop\PB for GitHub\PhoneBook\Contact\obj\Debug\Contact.pdb
