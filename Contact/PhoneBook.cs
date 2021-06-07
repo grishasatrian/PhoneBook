@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Contact
@@ -49,7 +50,25 @@ namespace Contact
                 MessageBox.Show("Please input address!");
                 return;
             }
+            // Handling email validation
+            Regex regexEmail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            bool isValidEmail = regexEmail.IsMatch(input_email.Text);
+            if (!isValidEmail)
+            {
+                MessageBox.Show("Please input valid Email");
+                return;
+            }
+            // handling phone validation
+            Regex regexPhone = new Regex(@"[0-9]");
+            bool isValidPhone = regexPhone.IsMatch(input_phone.Text);
+            if (!isValidPhone)
+            {
+                MessageBox.Show("Please input valid Phone number");
+                return;
+            }
             _contacts.Add(new Contact(name, email, phone, address));
+            errorProviderEmail.Clear();
+            errorProviderPhone.Clear();
             input_name.Text = "";
             input_email.Text = "";
             input_phone.Text = "";
@@ -99,6 +118,22 @@ namespace Contact
                 MessageBox.Show("Please input address!");
                 return;
             }
+            // Handling email validation
+            Regex regexEmail = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            bool isValidEmail = regexEmail.IsMatch(input_email.Text);
+            if (!isValidEmail)
+            {
+                MessageBox.Show("Please input valid Email");
+                return;
+            }
+            // handling phone validation
+            Regex regexPhone = new Regex(@"[0-9]");
+            bool isValidPhone = regexPhone.IsMatch(input_phone.Text);
+            if (!isValidPhone)
+            {
+                MessageBox.Show("Please input valid Phone number");
+                return;
+            }
             if (_selection >= 0)
             {
                 _contacts[_selection].Name = name;
@@ -112,11 +147,13 @@ namespace Contact
                 input_phone.Text = "";
                 input_address.Text = "";
                 _selection = -1;
-            }
+            }           
             else
             {
                 MessageBox.Show("Please select a row");
             }
+            errorProviderEmail.Clear();
+            errorProviderPhone.Clear();
         }
         // Method to change contact in the grid
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -157,5 +194,36 @@ namespace Contact
         {
 
         }
+
+        private void input_email_Leave(object sender, EventArgs e)
+        {
+            string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+            if (Regex.IsMatch(input_email.Text, pattern))
+            {
+                errorProviderEmail.Clear();
+            }
+            else
+            {
+                errorProviderEmail.SetError(this.input_email, "Please input valid Email address");
+                return;
+            }
+        }
+        private void input_phone_Leave(object sender, EventArgs e)
+        {
+            string pattern = @"[0-9]";
+
+            if (Regex.IsMatch(input_phone.Text, pattern))
+            {
+                errorProviderPhone.Clear();
+            }
+            else
+            {
+                errorProviderPhone.SetError(this.input_email, "Use only numbers");
+                return;
+            }
+        }
+
+       
     }
 }
